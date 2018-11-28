@@ -1,6 +1,6 @@
 === Modpinn ===
 Contributors: Kel Com
-Tags: ajax, rest
+Tags: ajax, curl, images
 Requires at least: 4.8
 Tested up to: 4.9
 Stable tag: 1.7
@@ -44,9 +44,6 @@ Do you have questions or issues with Modpinn? Use these support channels.
 
 [Support](https://pressfinesse.com/modpinn-support/)
 
-== Screenshots ==
-
-1. screenshot-1.png
 
 == Changelog ==
 
