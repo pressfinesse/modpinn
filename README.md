@@ -1,2 +1,0 @@
-# modpinn
-wordpress plugin
