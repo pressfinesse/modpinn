@@ -43,6 +43,29 @@ function mp_curl($subject){
 
     }
 
+	function mp_imgs($obj)
+	{
+
+		$dom = new DOMDocument('1.0', '…');
+		$dom->loadHTML($obj);
+		$dom->preserveWhiteSpace = false;
+		$images = $dom->getElementsByTagName('img');
+		$pins = '';
+
+		foreach($images as $img){
+      	  $pins .= '<img src="'.$img->getAttribute("src").'" />';  
+      	  //$uname = $img->getAttribute('src');  
+		  //$uname = substr(strrchr($url, "/"), 1);
+
+		  //$pins .= file_get_contents($url);
+
+		}
+
+		return $pins;
+
+	}
+
+
 function mp_response_code($url) {
     
     $response = wp_remote_get($url);
@@ -58,4 +81,6 @@ function mp_content_type($url) {
     
         return $response_code;
     }
+
+
 ?>
