@@ -68,13 +68,36 @@ function modpinn_options() {
 
 function modpinn_dash() {
 
-    echo '<div class="container"><div class="row">';
-         
-?>	    
-        <div class="res">
+    echo '<div class="container"><div class="row">
+          <h1>Remote Site</h1><div class="ht25"></div>
+        <form id="mp-add-Form" action="" method="post">
+    	  <div class="form-group">
+    	  <label for="InputUrl">Url</label>
+    ';
+	if ( isset( $_POST['InputUrl'] ) ) { 
+	    
+            $url = trim($_POST[ 'InputUrl' ]); 
+            $obj = mp_curl($url); 
+            $imgs = mp_imgs($obj); 
 
-        </div>
-<?php  
-     echo '</div></div>';
+	}
+    ?>
+    
+      <input type="text" class="form-control" id="Urlid" name="InputUrl" aria-describedby="urlHelp" value="<?php if ( isset($url) ){echo $url;} ?>" placeholder="Enter Url">
+    	<small id="urlHelp" class="form-text text-muted">Enter a valid link.</small>
+    	</div>
+
+    	<input type="hidden" name="uri" value="<?php if ( isset($url) ){echo $url;} ?>">
+    	<input type="hidden" name="status" value="active">
+
+      <button type="submit" name="imgs_uri" id="imgs" class="btn btn-success">imgs?</button>
+	    
+
+	<?php if ( isset($imgs) ){echo '<div class="ht25"></div>'.$imgs;} ?>
+
+<?php 
+
+       echo '</form><div class="ht25"></div></div></div>';
+
 }
 ?>
